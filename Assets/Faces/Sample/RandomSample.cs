@@ -47,7 +47,7 @@ public class RandomSample : MonoBehaviour {
 		float val = 1f - sat / 2f;
 		float hue = Random.Range(40, 60)/360f;
 
-		if (Random.Range(0,10) == 5) 
+		if (Random.Range(0,40) == 5) 
         {
 			hue = Random.Range(0, 360) / 360f;
         }
