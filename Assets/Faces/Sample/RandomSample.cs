@@ -15,6 +15,7 @@ public class RandomSample : MonoBehaviour {
 	public Color[] background;
 	private Camera cam;
 	public string nombre = "";
+	private string[] Atributos;
 
 	void Start () {
 		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -31,6 +32,7 @@ public class RandomSample : MonoBehaviour {
 
 		ColorPelo();
 		ColorBody();
+		Pistas();
 
 		cam.backgroundColor = background[Random.Range(0,background.Length)];
 	}
@@ -40,6 +42,7 @@ public class RandomSample : MonoBehaviour {
 		float val = 1f - sat / 2f;
 		float hue = Random.value;
 		chair.color = Color.HSVToRGB(hue, sat, val);
+
 	}
 	private void ColorBody()
     {
@@ -55,4 +58,14 @@ public class RandomSample : MonoBehaviour {
 		cbody.color = Color.HSVToRGB(hue, sat, val);
 	}
 
+	public void Pistas()
+    {
+		Atributos[0] = "body" + cbody.sprite.name;
+		Atributos[1] = "face" + cface.sprite.name;
+		Atributos[2] = "hair" + chair.sprite.name;
+		Atributos[3] = "kit" + ckit.sprite.name;
+		Atributos[4] = "pelo" + chair.color;
+		Atributos[5] = "body" + cbody.color;
+		Debug.LogFormat(Atributos[0], Atributos[1], Atributos[2], Atributos[3], Atributos[4], Atributos[5]);
+	}
 }
