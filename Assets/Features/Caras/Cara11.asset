@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c1da11bd538fd4c887138c91b10226, type: 3}
   m_Name: Cara11
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: baabcfee76d4f422fa2d9ab783ee38b0, type: 3}
+  sprite: {fileID: 21300000, guid: 8493ded5ac2e22e4bb0bff5450c14303, type: 3}
   pista: feo

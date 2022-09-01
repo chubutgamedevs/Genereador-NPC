@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c1da11bd538fd4c887138c91b10226, type: 3}
   m_Name: Pelo 6
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2681e7b093df0ae4caf0beb69cbd14e7, type: 3}
+  sprite: {fileID: 21300000, guid: c5b4c93c17f334b65945302caeee55c8, type: 3}
   pista: 
