@@ -15,7 +15,7 @@ public class RandomSample : MonoBehaviour {
 	public Color[] background;
 	private Camera cam;
 	public string nombre = "";
-	private string[] Atributos;
+	private string[] Atributos = new string[10];
 
 	void Start () {
 		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -66,6 +66,6 @@ public class RandomSample : MonoBehaviour {
 		Atributos[3] = "kit" + ckit.sprite.name;
 		Atributos[4] = "pelo" + chair.color;
 		Atributos[5] = "body" + cbody.color;
-		Debug.LogFormat(Atributos[0], Atributos[1], Atributos[2], Atributos[3], Atributos[4], Atributos[5]);
+		Debug.Log(Atributos[0]+ Atributos[1]+ Atributos[2]+ Atributos[3]+ Atributos[4]+ Atributos[5]);
 	}
 }
