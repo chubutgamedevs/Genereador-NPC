@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterPower : MonoBehaviour
 {
-
+    
     void Start()
     {
         Randomize();
@@ -19,4 +19,10 @@ public class CharacterPower : MonoBehaviour
             Debug.Log(feat.pista);
         }
     }
+
+    public void Mutar(int feat)
+    {
+        transform.GetChild(feat).GetComponent<Feature>().Mutar();
+    }
+
 }
