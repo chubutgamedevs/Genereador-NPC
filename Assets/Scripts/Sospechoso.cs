@@ -5,15 +5,14 @@ using UnityEngine;
 public class Sospechoso : MonoBehaviour
 {
     public GameObject criminal;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Mutante()
     {
-        
+        foreach (Transform f in transform)
+        {
+            Feature feat = f.gameObject.GetComponent<Feature>();
+            feat.Mutar();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gamemanager : MonoBehaviour
-
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public CharacterPower original;
+    public CharacterPower clon0;
+    public CharacterPower clon1;
+    public CharacterPower clon2;
 
-    // Update is called once per frame
-    void Update()
+    public List<GameObject> sospechosos;
+
+    private void Start()
     {
-        
+        GameObject[] clon = GameObject.FindGameObjectsWithTag("clon");
+    }
+    public void MutarYClonar()
+    {
+        original.Randomize();
+        clon0.Clonar(original.adn);
+        clon0.Mutar(0);
+
+        clon1.Clonar(original.adn);
+        clon1.Mutar(1);
+
+        clon2.Clonar(original.adn);
+        clon2.Mutar(2);
     }
 }

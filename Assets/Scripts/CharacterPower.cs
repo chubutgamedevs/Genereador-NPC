@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterPower : MonoBehaviour
 {
+    public int[] adn;
     
     void Start()
     {
@@ -12,11 +13,19 @@ public class CharacterPower : MonoBehaviour
 
     public void Randomize()
     {
-        foreach (Transform f in transform)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            Feature feat = f.gameObject.GetComponent<Feature>();
-            feat.Randomize();
-            Debug.Log(feat.pista);
+            Feature feat = transform.GetChild(i).gameObject.GetComponent<Feature>();
+            adn[i] = feat.Randomize();
+        }            
+    }
+
+    public void Clonar(int[] adn)
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            Feature feat = transform.GetChild(i).GetComponent<Feature>();
+            feat.SetADN(adn[i]);
         }
     }
 
