@@ -5,6 +5,7 @@ using System.Linq;
 
 public class gamemanager : MonoBehaviour
 {
+    public GameObject indicador;
     public CharacterPower original;
     public CharacterPower clon0;
     public CharacterPower clon1;
@@ -30,6 +31,7 @@ public class gamemanager : MonoBehaviour
     {
         sospechosos = sospechosos.OrderBy(_ => Random.value).ToList();
         original = sospechosos[0];
+        indicador.transform.position = original.transform.position;
         original.Randomize();
 
         for (int i = 1; i<sospechosos.Count; i++)
