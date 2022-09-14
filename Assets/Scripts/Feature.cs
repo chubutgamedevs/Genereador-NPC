@@ -8,31 +8,24 @@ public class Feature : MonoBehaviour
 	private int adn;
 	public Image imagen;
 	public string pista;
-
 	public FeatureData[] data;
-	
 
-	//--------------------------------------------------
 	public int getAdn()
     {
 		return adn;
     }
-
 	public void SetADN(int cromo)
     {
 		adn = cromo;
 		imagen.sprite = data[adn].sprite;
 		pista = data[adn].pista;
 	}
-
-
 	public int Randomize()
 	{
 		int i = Random.Range(0, data.Length);
 		SetADN(i);
 		return i;
 	}
-
 	public void Mutar()
 	{
 		int i = (adn + Random.Range(1, data.Length)) % data.Length;

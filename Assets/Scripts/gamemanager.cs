@@ -19,12 +19,7 @@ public class gamemanager : MonoBehaviour
 
     private void Start()
     {
-
-        // GameObject[] clon = GameObject.FindGameObjectsWithTag("clon");
-
-        //sospechosos = new List<CharacterPower>();
         MutarYClonar();
-
     }
 
     public void MutarYClonar()
