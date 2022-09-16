@@ -5,10 +5,15 @@ using UnityEngine;
 public class CharacterPower : MonoBehaviour
 {
     public int[] adn;
-    
+    private gamemanager miGameManager;
     void Start()
     {
         Randomize();
+
+    }
+    private void Awake()
+    {
+        miGameManager = gamemanager.GetInstance();
     }
 
     public void Randomize()
@@ -34,4 +39,11 @@ public class CharacterPower : MonoBehaviour
         transform.GetChild(feat).GetComponent<Feature>().Mutar();
     }
 
+    private void OnMouseDown()
+    {
+        miGameManager.Criminal(this);
+        //Debug.Log("clickeado"+ gameObject.name);
+
+
+    }
 }

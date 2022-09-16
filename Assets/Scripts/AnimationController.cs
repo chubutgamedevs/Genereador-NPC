@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animator texto;
-    private bool salida;
+    public bool salida;
 
     // Start is called before the first frame update
     void Start()

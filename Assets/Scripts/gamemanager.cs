@@ -17,6 +17,25 @@ public class gamemanager : MonoBehaviour
     
     public List<CharacterPower> sospechosos;
 
+    private static gamemanager instance;
+
+    public static gamemanager GetInstance()
+    {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        if (instance !=null && instance != this){
+            Destroy(this.gameObject);
+        }
+    }
+
     private void Start()
     {
         MutarYClonar();
@@ -33,6 +52,17 @@ public class gamemanager : MonoBehaviour
         {
             sospechosos[i].Clonar(original.adn);
             sospechosos[i].Mutar(i%3);
+        }
+    }
+    public void Criminal(CharacterPower acusado)
+    {
+        if (original == acusado)
+        {
+            Debug.Log("Encontraste al culpable, enhorabuena");
+        }
+        else
+        {
+            Debug.Log("Fusilaron a un inoscente");
         }
     }
 }
