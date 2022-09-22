@@ -9,13 +9,11 @@ public class CharacterPower : MonoBehaviour
     void Start()
     {
         Randomize();
-
     }
     private void Awake()
     {
         miGameManager = gamemanager.GetInstance();
     }
-
     public void Randomize()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -24,7 +22,6 @@ public class CharacterPower : MonoBehaviour
             adn[i] = feat.Randomize();
         }            
     }
-
     public void Clonar(int[] adn)
     {
         for(int i = 0; i < transform.childCount; i++)
@@ -33,18 +30,13 @@ public class CharacterPower : MonoBehaviour
             feat.SetADN(adn[i]);
         }
     }
-
     public void Mutar(int feat)
     {
         transform.GetChild(feat).GetComponent<Feature>().Mutar();
     }
-
     public void OnMouseDown()
     {
-        miGameManager.acusado = this.gameObject.name;
-        
-        Debug.Log("clickeado"+ gameObject.name);
-
-
+        miGameManager.acusado = this.gameObject.name;        
+        Debug.Log("clickeado el npc:"+ gameObject.name);
     }
 }
