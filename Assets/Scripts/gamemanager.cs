@@ -19,6 +19,9 @@ public class gamemanager : MonoBehaviour
 
     private static gamemanager instance;
 
+    public string acusado;
+    private string chorro;
+
     public static gamemanager GetInstance()
     {
         return instance;
@@ -54,9 +57,10 @@ public class gamemanager : MonoBehaviour
             sospechosos[i].Mutar(i%3);
         }
     }
-    public void Criminal(CharacterPower acusado)
+    public void Criminal()
     {
-        if (original == acusado)
+        chorro = original.name;
+        if (chorro == acusado)
         {
             Debug.Log("Encontraste al culpable, enhorabuena");
         }
@@ -64,5 +68,10 @@ public class gamemanager : MonoBehaviour
         {
             Debug.Log("Fusilaron a un inoscente");
         }
+    }
+
+    public void whoIs()
+    {
+
     }
 }

@@ -39,10 +39,11 @@ public class CharacterPower : MonoBehaviour
         transform.GetChild(feat).GetComponent<Feature>().Mutar();
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        miGameManager.Criminal(this);
-        //Debug.Log("clickeado"+ gameObject.name);
+        miGameManager.acusado = this.gameObject.name;
+        
+        Debug.Log("clickeado"+ gameObject.name);
 
 
     }
