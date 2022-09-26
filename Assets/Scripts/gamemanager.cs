@@ -5,7 +5,9 @@ using System.Linq;
 
 public class gamemanager : MonoBehaviour
 {
-    public GameObject indicador;
+    public GameObject indicador;                //Inidcador para hacer "trampa" y saber el culpable
+
+    // NPC's en la rueda de reconocimiento
     public CharacterPower original;
     public CharacterPower clon0;
     public CharacterPower clon1;
@@ -14,19 +16,22 @@ public class gamemanager : MonoBehaviour
     public CharacterPower clon4;
     public CharacterPower clon5;
     public CharacterPower clon6;
-    
+
+    // Variables varias
     public List<CharacterPower> sospechosos;
-
     private static gamemanager instance;
-
     public string acusado;
     private string chorro;
+    public GameObject pistasobject; // <--Gameobject con las pistas sobre el sospechoso
+    private string pista;
+    private int random;
+    
 
+    //Singletone de gamemanager
     public static gamemanager GetInstance()
     {
         return instance;
     }
-
     private void Awake()
     {
         if (instance == null)
@@ -38,12 +43,12 @@ public class gamemanager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    //---------------------------------
     private void Start()
     {
         MutarYClonar();
     }
-
+   //Cambiar un feature de cada uno de los no culpable
     public void MutarYClonar()
     {
         sospechosos = sospechosos.OrderBy(_ => Random.value).ToList();
@@ -57,6 +62,8 @@ public class gamemanager : MonoBehaviour
             sospechosos[i].Mutar(i%3);
         }
     }
+
+    //El sospechoso acusado es culpable?
     public void Criminal()
     {
         chorro = original.name;
@@ -66,12 +73,29 @@ public class gamemanager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Fusilaron a un inoscente");
+            Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");
         }
     }
 
-    public void whoIs()
+    //Administrar pistas sobre el culpable
+    public void Pistas()
     {
+        pista = pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text;
+        random = Random.Range(1, 3);
+        if (random == 1)
+        {
+            pista = original.transform.Find("FeatureRopa").GetComponent<Feature>().pista;
+        }
+        if (random == 2)
+        {
+            pista = original.transform.Find("FeatureCara").GetComponent<Feature>().pista;
+        }
+        if (random == 3) 
+        {
+            pista = original.transform.Find("FeaturePelo").GetComponent<Feature>().pista;
+        }
+        pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = pista;
 
+        Debug.Log(pista);
     }
 }
