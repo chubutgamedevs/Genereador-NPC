@@ -95,7 +95,5 @@ public class gamemanager : MonoBehaviour
             pista = original.transform.Find("FeaturePelo").GetComponent<Feature>().pista;
         }
         pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = pista;
-
-        Debug.Log(pista);
     }
 }
