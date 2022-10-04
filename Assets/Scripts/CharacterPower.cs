@@ -36,7 +36,8 @@ public class CharacterPower : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        miGameManager.acusado = this.gameObject.name;        
-        Debug.Log("clickeado el npc:"+ gameObject.name);
+        Debug.Log("clickeado el npc:" + this.gameObject.GetComponent<CharacterPower>());
+        miGameManager.acusado = this.gameObject.GetComponent<CharacterPower>();        
+        
     }
 }

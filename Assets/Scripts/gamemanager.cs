@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class gamemanager : MonoBehaviour
 {
@@ -20,11 +21,12 @@ public class gamemanager : MonoBehaviour
     // Variables varias
     public List<CharacterPower> sospechosos;
     private static gamemanager instance;
-    public string acusado;
-    private string chorro;
+    public CharacterPower acusado;
+    private CharacterPower chorro;
     public GameObject pistasobject; // <--Gameobject con las pistas sobre el sospechoso
     private string pista;
     private int random;
+    private CharacterPower preso;
     
 
     //Singletone de gamemanager
@@ -66,15 +68,15 @@ public class gamemanager : MonoBehaviour
     //El sospechoso acusado es culpable?
     public void Criminal()
     {
-        chorro = original.name;
+        chorro = original;
         if (chorro == acusado)
         {
-            Debug.Log("Encontraste al culpable, enhorabuena");
+            Debug.Log("Encontraste al culpable, enhorabuena"); 
         }
         else
         {
-            Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");
-        }
+            Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");        }
+        Final();
     }
 
     //Administrar pistas sobre el culpable
@@ -95,5 +97,9 @@ public class gamemanager : MonoBehaviour
             pista = original.transform.Find("FeaturePelo").GetComponent<Feature>().pista;
         }
         pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = pista;
+    }
+    public void Final()
+    {
+        SceneManager.LoadScene("Final");       
     }
 }

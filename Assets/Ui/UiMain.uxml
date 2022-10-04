@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/botonestilo.uss?fileID=7433441132597879392&amp;guid=b4822e2f4fe59904d88ed9afe79f3fc7&amp;type=3#botonestilo" />
+    <ui:VisualElement style="width: 100%; height: 100%; justify-content: flex-end; flex-grow: 1;">
+        <ui:Button text="Dame una Pista" display-tooltip-when-elided="true" name="Pista" style="position: absolute; right: 5%; margin-bottom: 5px; bottom: 5px;" />
+        <ui:Button text="Rand" display-tooltip-when-elided="true" name="Random" enable-rich-text="false" class="botonestilo" />
+    </ui:VisualElement>
+</ui:UXML>
