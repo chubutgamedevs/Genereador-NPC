@@ -5,15 +5,25 @@ using UnityEngine;
 public class Final : MonoBehaviour
 {
     public CharacterPower acusado;
-    // Start is called before the first frame update
-    void Start()
+    private bool carcel;
+    private void Start()
     {
-        
+        carcel = gamemanager.GetInstance().culpable;
+        if (carcel == true) { Culpable(); }
+        if (carcel == false) { Inocente(); }
     }
 
-    // Update is called once per frame
     void Update()
     {
         acusado.Clonar(gamemanager.GetInstance().acusado.adn);
+    }
+
+    public void Culpable()
+    {
+        Debug.Log("Encontraste al culpable, enhorabuena");
+    }
+    public void Inocente()
+    {
+        Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");
     }
 }

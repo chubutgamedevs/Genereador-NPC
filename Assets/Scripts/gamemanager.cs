@@ -27,6 +27,7 @@ public class gamemanager : MonoBehaviour
     private string pista;
     private int random;
     private CharacterPower preso;
+    public bool culpable;
     
 
     //Singletone de gamemanager
@@ -71,11 +72,14 @@ public class gamemanager : MonoBehaviour
         chorro = original;
         if (chorro == acusado)
         {
-            Debug.Log("Encontraste al culpable, enhorabuena"); 
+            culpable = true;
+             
         }
         else
         {
-            Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");        }
+            culpable = false;
+            
+        }
         Final();
     }
 
