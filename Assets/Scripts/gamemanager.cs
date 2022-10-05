@@ -28,7 +28,10 @@ public class gamemanager : MonoBehaviour
     private int random;
     private CharacterPower preso;
     public bool culpable;
-    
+    public GameObject trans;
+    public Animator panel;
+    public bool salida;
+
 
     //Singletone de gamemanager
     public static gamemanager GetInstance()
@@ -50,6 +53,8 @@ public class gamemanager : MonoBehaviour
     private void Start()
     {
         MutarYClonar();
+        panel = trans.GetComponent<Animator>();
+        salida = false;
     }
    //Cambiar un feature de cada uno de los no culpable
     public void MutarYClonar()
@@ -70,16 +75,8 @@ public class gamemanager : MonoBehaviour
     public void Criminal()
     {
         chorro = original;
-        if (chorro == acusado)
-        {
-            culpable = true;
-             
-        }
-        else
-        {
-            culpable = false;
-            
-        }
+        if (chorro == acusado){culpable = true;}
+        else { culpable = false;}
         Final();
     }
 
@@ -104,6 +101,11 @@ public class gamemanager : MonoBehaviour
     }
     public void Final()
     {
-        SceneManager.LoadScene("Final");       
+        salida = !salida;
+        panel.SetBool("Salida", salida);
+        SceneManager.LoadScene("Final");
+        salida = !salida;
+        panel.SetBool("Salida", salida);
     }
+
 }
