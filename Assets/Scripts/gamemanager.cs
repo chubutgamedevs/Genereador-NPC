@@ -111,7 +111,11 @@ public class gamemanager : MonoBehaviour
 
     public void OnButtonReset()
     {
+        salida = !false;
+        panel.SetBool("Salida", salida);
         SceneManager.LoadScene("Juego");
+        salida = false;
+        panel.SetBool("Salida", salida);
     }
 
 }

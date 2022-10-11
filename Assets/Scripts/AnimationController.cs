@@ -10,7 +10,6 @@ public class AnimationController : MonoBehaviour
     void Start()
     {
         texto = gameObject.GetComponent<Animator>();
-        salida = true;
     }
 
     public void OnButtonEntrada()
