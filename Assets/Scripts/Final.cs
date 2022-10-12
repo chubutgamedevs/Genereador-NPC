@@ -24,6 +24,6 @@ public class Final : MonoBehaviour
     }
     public void Inocente()
     {
-        Debug.Log("Fusilaron a un inoscente, mejor suerte la proxima :)");
+        Debug.Log("era un inoscente, mejor suerte la proxima :)");
     }
 }

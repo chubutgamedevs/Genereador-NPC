@@ -53,9 +53,10 @@ public class gamemanager : MonoBehaviour
     //---------------------------------
     private void Start()
     {
+        Debug.Log("Hola");
         MutarYClonar();
         panel = trans.GetComponent<Animator>();
-        salida = true;
+        salida = true ;
     }
    //Cambiar un feature de cada uno de los no culpable
     public void MutarYClonar()
@@ -102,20 +103,26 @@ public class gamemanager : MonoBehaviour
     }
     public void Final()
     {
-        salida = !salida;
-        panel.SetBool("Salida", salida);
-        SceneManager.LoadScene("Final");
-        salida = !salida;
-        panel.SetBool("Salida", salida);
+
+        StartCoroutine(Esperar());
+        
+        //salida = !salida;
+        //panel.SetBool("Salida", salida);
     }
 
     public void OnButtonReset()
     {
+        culpable = false;
         salida = !false;
-        panel.SetBool("Salida", salida);
         SceneManager.LoadScene("Juego");
-        salida = false;
-        panel.SetBool("Salida", salida);
     }
+
+    IEnumerator Esperar()
+    {
+        panel.SetBool("Salida", salida);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Final");
+    }
+
 
 }
