@@ -40,6 +40,7 @@ public class gamemanager : MonoBehaviour
     }
     private void Awake()
     {
+        trans.SetActive(false);
         salida = true;
         if (instance == null)
         {
@@ -103,25 +104,32 @@ public class gamemanager : MonoBehaviour
     }
     public void Final()
     {
-
-        StartCoroutine(Esperar());
-        
-        //salida = !salida;
-        //panel.SetBool("Salida", salida);
+        trans.SetActive(true);
+        StartCoroutine(Entrar());
     }
 
     public void OnButtonReset()
     {
         culpable = false;
-        salida = !false;
-        SceneManager.LoadScene("Juego");
+        StartCoroutine(Salir());
     }
 
-    IEnumerator Esperar()
+    IEnumerator Entrar()
     {
         panel.SetBool("Salida", salida);
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Final");
+        salida = !salida;
+        panel.SetBool("Salida", salida);
+    }
+    IEnumerator Salir()
+    {
+        salida = !salida;
+        panel.SetBool("Salida", salida);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Juego");
+        salida = !salida;
+        panel.SetBool("Salida", salida);
     }
 
 

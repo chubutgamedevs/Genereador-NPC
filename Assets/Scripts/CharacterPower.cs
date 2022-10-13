@@ -8,6 +8,7 @@ public class CharacterPower : MonoBehaviour
     private gamemanager miGameManager;
     void Start()
     {
+        miGameManager = gamemanager.GetInstance();
         Randomize();
     }
     private void Awake()

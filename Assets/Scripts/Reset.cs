@@ -7,6 +7,6 @@ public class Reset : MonoBehaviour
 {
     public void OnButtonReset()
     {
-        SceneManager.LoadScene("Juego");
+        gamemanager.GetInstance().OnButtonReset();
     }
-}
+ }
