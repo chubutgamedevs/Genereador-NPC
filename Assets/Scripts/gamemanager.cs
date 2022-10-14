@@ -40,7 +40,6 @@ public class gamemanager : MonoBehaviour
     }
     private void Awake()
     {
-        trans.SetActive(false);
         salida = true;
         if (instance == null)
         {
@@ -54,7 +53,6 @@ public class gamemanager : MonoBehaviour
     //---------------------------------
     private void Start()
     {
-        Debug.Log("Hola");
         MutarYClonar();
         panel = trans.GetComponent<Animator>();
         salida = true ;
@@ -102,18 +100,21 @@ public class gamemanager : MonoBehaviour
         }
         pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = pista;
     }
+    
+    //Ir a la escena para acusar al elejido
     public void Final()
     {
-        trans.SetActive(true);
         StartCoroutine(Entrar());
     }
 
+    //Volver a jugar (ROTO)
     public void OnButtonReset()
     {
         culpable = false;
         StartCoroutine(Salir());
     }
 
+    //Animación del panel de transicion
     IEnumerator Entrar()
     {
         panel.SetBool("Salida", salida);
@@ -132,5 +133,6 @@ public class gamemanager : MonoBehaviour
         panel.SetBool("Salida", salida);
     }
 
+    //Caminos? A donde vamos no necesitamos caminos
 
 }
