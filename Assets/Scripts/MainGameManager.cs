@@ -2,10 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainGameManager : MonoBehaviour
 {
     [SerializeField] List<NPCGenerator> npcs;
+    private static MainGameManager instance;
+    private bool salida;
+    public GameObject trans;
+    public GameObject panels;
+    public Animator transs;
+    public Animator panelss;
+
+    //Singletone de gamemanager
+    public static MainGameManager GetInstance()
+    {
+        return instance;
+    }
+    private void Awake()
+    {
+        salida = true;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        if (instance !=null && instance != this){
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -38,7 +63,18 @@ public class MainGameManager : MonoBehaviour
         {
             Debug.Log("Mandaste un inocente al paredon");
         }
+        Dialogo();
     }
-
+    public void Final()
+    {
+        transs.SetBool("Salida", salida);
+        SceneManager.LoadScene("Final");
+        salida = !salida;
+        transs.SetBool("Salida", salida);
+    }
+    public void Dialogo()
+    {
+        panelss.SetBool("Salida", !salida);
+    }
 
 }
