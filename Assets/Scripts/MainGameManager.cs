@@ -8,11 +8,16 @@ public class MainGameManager : MonoBehaviour
 {
     [SerializeField] List<NPCGenerator> npcs;
     private static MainGameManager instance;
-    private bool salida;
+    private bool salida = true;
     public GameObject trans;
-    public GameObject panels;
+    //public GameObject panels;
+    public GameObject pistas;
     public Animator transs;
-    public Animator panelss;
+   // public Animator panelss;
+    public Animator pista;
+    public GameObject pistasobject;
+    private string texto;
+    private int cont = 0;
 
     //Singletone de gamemanager
     public static MainGameManager GetInstance()
@@ -21,7 +26,6 @@ public class MainGameManager : MonoBehaviour
     }
     private void Awake()
     {
-        salida = true;
         if (instance == null)
         {
             instance = this;
@@ -63,7 +67,6 @@ public class MainGameManager : MonoBehaviour
         {
             Debug.Log("Mandaste un inocente al paredon");
         }
-        Dialogo();
     }
     public void Final()
     {
@@ -72,9 +75,33 @@ public class MainGameManager : MonoBehaviour
         salida = !salida;
         transs.SetBool("Salida", salida);
     }
-    public void Dialogo()
+    IEnumerator OtraPista()
     {
-        panelss.SetBool("Salida", !salida);
+        Debug.Log("Cambiando pista");
+        pista.SetBool("Salida",salida);
+        yield return new WaitForSeconds(0.5f);
+        pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = texto;
+        pista.SetBool("Salida", !salida);
+    } 
+    public void ButtonPista(){
+        StartCoroutine(OtraPista());
+    }
+       public void Pistas()
+    {
+        texto = pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text;
+        if (cont == 1)
+        {
+            texto = npcs[0].transform.Find("FeatureRopa").GetComponent<Feature>().pista;
+        }
+        if (cont == 2)
+        {
+            texto = npcs[0].transform.Find("FeatureCara").GetComponent<Feature>().pista;
+        }
+        if (cont == 3) 
+        {
+            texto = npcs[0].transform.Find("FeaturePelo").GetComponent<Feature>().pista;
+        }
+        pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = texto;
     }
 
 }
