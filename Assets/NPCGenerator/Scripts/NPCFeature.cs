@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCFeature : MonoBehaviour
 {
     [SerializeField] int _index = 0;
-    [SerializeField] List<Sprite> _sprites;
+    [SerializeField] List<NPCFeatureData> _data;
     
     private SpriteRenderer _spriteRenderer;
     
@@ -17,20 +17,25 @@ public class NPCFeature : MonoBehaviour
         return _index;
     }
 
+    public string GetPista(){
+        return _data[_index].pista;
+    }
+
     public void SetIndex(int index)
     {
-		_index = index % _sprites.Count; // Acepta cualquier indice y lo acomoda a la cantidad de sprites
-        _spriteRenderer.sprite = _sprites[_index];
+		_index = index % _data.Count; // Acepta cualquier indice y lo acomoda a la cantidad de sprites
+        _spriteRenderer.sprite = _data[_index].sprite;
 	}
 
     public int Generate(){
-        int i = Random.Range(0, _sprites.Count);
+        int i = Random.Range(0, _data.Count);
         SetIndex(i);
         return i;
+
     }
 
     public int Mutate(){
-        int i = _index + Random.Range(1, _sprites.Count);
+        int i = _index + Random.Range(1, _data.Count);
         SetIndex(i);
         return i;
     }
