@@ -17,6 +17,8 @@ public class MeinSceneManager : MonoBehaviour
     
     private int pistaActual = 0;    
     public GameObject elBotonDeLaSiguientePista;
+
+    [SerializeField] Mensaje mensaje;
         
     private void Start()
     {
@@ -29,7 +31,7 @@ public class MeinSceneManager : MonoBehaviour
         
 
         
-        SiguientePista();
+        SiguientePista();        
     }   
     public void GenerateNPCs() => npcs.ForEach(npc => npc.Generate());
 
@@ -64,16 +66,22 @@ public class MeinSceneManager : MonoBehaviour
     {
         Debug.Log("Cambiando pista");
         pista.SetBool("Salida",true);
+        mensaje.Esconder();
+
         yield return new WaitForSeconds(0.5f);
         
-        if(SiguientePista()){
+        
+        string pp = SiguientePista();
+        if(pista != null){
             pista.SetBool("Salida", false);
+            mensaje.Mostrar(pp);
         } else {
             // No hay más testigos
             //Poner al bigote
             pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = "Ya pasaron todos los testigos, a quien acusas como culpable?";
             pista.SetBool("Salida", false);
             Debug.Log("No hay más testigos");
+            mensaje.Mostrar("No hay más testigos");
             elBotonDeLaSiguientePista.SetActive(false);
         }
         
@@ -82,14 +90,15 @@ public class MeinSceneManager : MonoBehaviour
         StartCoroutine(OtraPista());
     }
     
-    public bool SiguientePista()
+    public string SiguientePista()
     {
+        
         if (pistaActual >= npcs[0].GetFeatures().Count) {
-            return false;
+            return null;
         }
-        pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = npcs[0].GetFeatures()[pistaActual].GetPista();
+        string pista = npcs[0].GetFeatures()[pistaActual].GetPista();
         pistaActual++;
         
-        return true;
+        return pista;
     }
 }
