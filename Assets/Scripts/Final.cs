@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Final : MonoBehaviour
 {
-    public CharacterPower acusado;
+    public NPCGenerator acusado;
     private bool carcel;
     private void Start()
     {
-        carcel = gamemanager.GetInstance().culpable;
-        if (carcel == true) { Culpable(); }
-        if (carcel == false) { Inocente(); }
-    }
+        acusado.Clonate(MainGameManager.GetInstance().acusado);
 
-    void Update()
-    {
-        acusado.Clonar(gamemanager.GetInstance().acusado.adn);
+        if (MainGameManager.GetInstance().culpable)
+        {
+            Culpable();
+        }
+        else
+        {
+            Inocente();
+        }
     }
 
     public void Culpable()
@@ -25,5 +28,10 @@ public class Final : MonoBehaviour
     public void Inocente()
     {
         Debug.Log("era un inoscente, mejor suerte la proxima :)");
+    }
+    public void Reset()
+    {
+        SceneManager.LoadScene("Mein");
+
     }
 }

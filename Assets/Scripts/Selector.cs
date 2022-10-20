@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Selector : MonoBehaviour
 {
-    public MainGameManager gm;
+    public MeinSceneManager sm;
     public void OnMouseDown()
     {
-        gm.Acusar(GetComponent<NPCGenerator>()); 
+        sm.Acusar(GetComponent<NPCGenerator>()); 
     }
 }

@@ -167,15 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886f8349b328e44bb16ca0a6887b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcs:
-  - {fileID: 442343852}
-  - {fileID: 508915960}
-  - {fileID: 100177798}
-  - {fileID: 1872031592}
-  - {fileID: 1336250306}
-  pistas: {fileID: 1663149709}
-  pista: {fileID: 1663149711}
-  pistasobject: {fileID: 2086487296}
+  culpable: {fileID: 0}
+  acusado: {fileID: 0}
 --- !u!114 &100177798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1404204772379937864, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
@@ -198,6 +191,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 98871709}
+    - target: {fileID: 959297657, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 449601796}
     - target: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -399,6 +396,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
   m_PrefabInstance: {fileID: 1404204772013174244}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &449601795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449601797}
+  - component: {fileID: 449601796}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &449601796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449601795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b350902de350585bec51a15a109d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcs:
+  - {fileID: 442343852}
+  - {fileID: 508915960}
+  - {fileID: 100177798}
+  - {fileID: 1872031592}
+  - {fileID: 1336250306}
+  pistas: {fileID: 1663149709}
+  pista: {fileID: 1663149711}
+  pistasobject: {fileID: 2086487296}
+  elBotonDeLaSiguientePista: {fileID: 651658477}
+--- !u!4 &449601797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449601795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.341946, y: -0.1660579, z: -0.009354612}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &508915960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1404204772379937864, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
@@ -421,6 +472,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 98871709}
+    - target: {fileID: 959297657, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 449601796}
     - target: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -555,8 +610,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98871709}
-        m_TargetAssemblyTypeName: MainGameManager, Assembly-CSharp
+      - m_Target: {fileID: 449601796}
+        m_TargetAssemblyTypeName: MeinSceneManager, Assembly-CSharp
         m_MethodName: ButtonPista
         m_Mode: 1
         m_Arguments:
@@ -705,6 +760,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 98871709}
+    - target: {fileID: 959297657, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 449601796}
     - target: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -907,8 +966,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98871709}
-        m_TargetAssemblyTypeName: MainGameManager, Assembly-CSharp
+      - m_Target: {fileID: 449601796}
+        m_TargetAssemblyTypeName: MeinSceneManager, Assembly-CSharp
         m_MethodName: Variantes
         m_Mode: 1
         m_Arguments:
@@ -968,6 +1027,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 98871709}
+    - target: {fileID: 959297657, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 449601796}
     - target: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1189,7 +1252,7 @@ RectTransform:
   - {fileID: 1401692911}
   - {fileID: 1087245949}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1291,8 +1354,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98871709}
-        m_TargetAssemblyTypeName: MainGameManager, Assembly-CSharp
+      - m_Target: {fileID: 449601796}
+        m_TargetAssemblyTypeName: MeinSceneManager, Assembly-CSharp
         m_MethodName: GenerateNPCs
         m_Mode: 1
         m_Arguments:
@@ -1375,7 +1438,7 @@ Transform:
   - {fileID: 1872031595}
   - {fileID: 1624257826}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565902212
 GameObject:
@@ -1517,7 +1580,7 @@ Transform:
   m_Children:
   - {fileID: 1565902216}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1663149711
 Animator:
@@ -2052,6 +2115,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 98871709}
+    - target: {fileID: 959297657, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 449601796}
     - target: {fileID: 1404204772379937865, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
       propertyPath: m_RootOrder
       value: 0
