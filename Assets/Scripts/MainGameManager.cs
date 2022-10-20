@@ -6,40 +6,23 @@ using UnityEngine;
 
 public class MainGameManager : MonoBehaviour
 {
-    
-    private static MainGameManager instance;
-    public NPCGenerator culpable;
+
+    private static MainGameManager instance = null;
     public NPCGenerator acusado;
     
-
-    //Singletone de gamemanager
+    //Singleton
     public static MainGameManager GetInstance()
     {
         return instance;
     }
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        if (instance !=null && instance != this){
             Destroy(this.gameObject);
         }
-    }
-   
-    public void SetCulpable(NPCGenerator npc) {
-        culpable = npc;
-    }
 
-    public void SetAcusado(NPCGenerator npc)
-    {
-        acusado = npc;
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
-
-    public bool IsAcusadoCulpable(){
-        return acusado == culpable;
-    }
-    
 }

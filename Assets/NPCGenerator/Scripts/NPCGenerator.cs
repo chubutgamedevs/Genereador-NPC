@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NPCGenerator : MonoBehaviour
 {
+    
     [SerializeField] List<NPCFeature> _features;
+    public bool culpable = false;
 
     private void Awake(){
         _features = new List<NPCFeature>(transform.GetComponentsInChildren<NPCFeature>());
@@ -23,6 +25,7 @@ public class NPCGenerator : MonoBehaviour
         {
             _features[i++].SetIndex(feat.GetIndex());  
         }
+        culpable = npc.culpable;
     }
 
     public void Mutate(int feat) => _features[feat % _features.Count].Mutate();

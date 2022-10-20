@@ -11,7 +11,7 @@ public class Final : MonoBehaviour
     {
         acusado.Clonate(MainGameManager.GetInstance().acusado);
 
-        if (MainGameManager.GetInstance().culpable)
+        if (acusado.culpable)
         {
             Culpable();
         }
@@ -32,6 +32,5 @@ public class Final : MonoBehaviour
     public void Reset()
     {
         SceneManager.LoadScene("Mein");
-
     }
 }
