@@ -9,28 +9,20 @@ public class MeinSceneManager : MonoBehaviour
     [SerializeField] GameObject sospechosos;
     private List<NPCGenerator> npcs;
     private MainGameManager gm;
-    
-    
+    public botonpista bt;
     // public GameObject pistas;
     public Animator pista;
-    public GameObject pistasobject;
-    
     private int pistaActual = 0;    
-    public GameObject elBotonDeLaSiguientePista;
 
     [SerializeField] Mensaje mensaje;
         
     private void Start()
     {
         gm = MainGameManager.GetInstance();
-        
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<NPCGenerator>().ToList();
         Variantes();
-
-        
-
-        
+        mensaje.Mostrar("<-- Tocando aqui llamaras al siguiente testigo, suerte civil. Que el peso de la justicia te acompañe");
         SiguientePista();        
     }   
     public void GenerateNPCs() => npcs.ForEach(npc => npc.Generate());
@@ -65,24 +57,18 @@ public class MeinSceneManager : MonoBehaviour
     IEnumerator OtraPista()
     {
         Debug.Log("Cambiando pista");
-        pista.SetBool("Salida",true);
         mensaje.Esconder();
 
         yield return new WaitForSeconds(0.5f);
         
         
         string pp = SiguientePista();
-        if(pista != null){
-            pista.SetBool("Salida", false);
+        if(pp != null){
             mensaje.Mostrar(pp);
         } else {
-            // No hay más testigos
-            //Poner al bigote
-            pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = "Ya pasaron todos los testigos, a quien acusas como culpable?";
-            pista.SetBool("Salida", false);
             Debug.Log("No hay más testigos");
-            mensaje.Mostrar("No hay más testigos");
-            elBotonDeLaSiguientePista.SetActive(false);
+            mensaje.Mostrar("No hay más testigos, condena a alguien");
+            Destroy(bt);
         }
         
     } 
