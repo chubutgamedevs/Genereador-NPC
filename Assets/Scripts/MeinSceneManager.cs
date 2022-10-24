@@ -22,6 +22,7 @@ public class MeinSceneManager : MonoBehaviour
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<NPCGenerator>().ToList();
         Variantes();
+        gm.SalirNivel();
         mensaje.Mostrar("<-- Tocando aqui llamaras al siguiente testigo, suerte civil. Que el peso de la justicia te acompañe");
         SiguientePista();        
     }   
@@ -51,6 +52,7 @@ public class MeinSceneManager : MonoBehaviour
     public void Final()
     {
         // Transición entre escenas
+        gm.EntrarNivel();
         SceneManager.LoadScene("Final");
     }
 
