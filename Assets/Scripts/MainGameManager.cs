@@ -12,8 +12,7 @@ public class MainGameManager : MonoBehaviour
 
     private static MainGameManager instance = null;
     public NPCGenerator acusado;
-    public GameObject A;
-    public GameObject B;
+
     
     //Singleton
     public static MainGameManager GetInstance()
@@ -29,14 +28,5 @@ public class MainGameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    public void EntrarNivel(){
-        A.transform.DOMoveX(20 , 0.5f);
-        B.transform.DOMoveX(-20, 0.5f);
-    }
-    public void SalirNivel(){
-        A.transform.DOMoveX(-45, 0.5f);
-        B.transform.DOMoveX(45, 0.5f);
     }
 }

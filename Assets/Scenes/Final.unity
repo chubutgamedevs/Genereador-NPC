@@ -572,6 +572,7 @@ MonoBehaviour:
   ReiniciarButton: {fileID: 309355395}
   CartelitoOBJ: {fileID: 1878264577}
   cartelito: {fileID: 0}
+  cortina: {fileID: 1286455818}
 --- !u!4 &562240146
 Transform:
   m_ObjectHideFlags: 0
@@ -1226,6 +1227,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270403405}
   m_CullTransparentMesh: 1
+--- !u!1001 &1286455817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4229238
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4510431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168530, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124804133737168621, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+      propertyPath: m_Name
+      value: Cortina
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+--- !u!114 &1286455818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7124804133737168531, guid: da490954251ba3358aa00bc97c1a6eb6, type: 3}
+  m_PrefabInstance: {fileID: 1286455817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa8dde09076f8e8ba13f7b08ee50a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1864889482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02ac409924f8ba40b874a204c4c861e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texto: {fileID: 1080977102}
 --- !u!1 &2087697824
 GameObject:
   m_ObjectHideFlags: 0

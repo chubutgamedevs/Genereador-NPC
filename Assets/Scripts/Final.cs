@@ -15,7 +15,8 @@ public class Final : MonoBehaviour
     public GameObject CartelitoOBJ;
     private MainGameManager gm;
 
-    [SerializeField] private MensajeFinal cartelito;
+    [SerializeField] MensajeFinal cartelito;
+    [SerializeField] Cortina cortina;
     private void Start()
     {
         gm = MainGameManager.GetInstance();
@@ -31,7 +32,7 @@ public class Final : MonoBehaviour
         {
             Inocente();
         }
-        gm.SalirNivel();
+        cortina.Abrir();
         StartCoroutine(Esperar());
     }
 
@@ -50,16 +51,16 @@ public class Final : MonoBehaviour
     }
     public void Reset()
     {
-        gm.EntrarNivel();
         StartCoroutine(OtroEsperar());
     }
     IEnumerator Esperar(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         cartelito.Mostrar();
         yield return new WaitForSeconds(1);
         ReiniciarButton.SetActive(true);
     }
     IEnumerator OtroEsperar(){
+        cortina.Cerrar();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Mein");
     }

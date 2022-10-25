@@ -13,6 +13,7 @@ public class MeinSceneManager : MonoBehaviour
     // public GameObject pistas;
     public Animator pista;
     private int pistaActual = 0;    
+    [SerializeField] Cortina cortina;
 
     [SerializeField] Mensaje mensaje;
         
@@ -22,9 +23,9 @@ public class MeinSceneManager : MonoBehaviour
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<NPCGenerator>().ToList();
         Variantes();
-        gm.SalirNivel();
         mensaje.Mostrar("<-- Tocando aqui llamaras al siguiente testigo, suerte civil. Que el peso de la justicia te acompañe");
-        SiguientePista();        
+        SiguientePista(); 
+        cortina.Abrir();       
     }   
     public void GenerateNPCs() => npcs.ForEach(npc => npc.Generate());
 
@@ -51,9 +52,7 @@ public class MeinSceneManager : MonoBehaviour
 
     public void Final()
     {
-        // Transición entre escenas
-        gm.EntrarNivel();
-        SceneManager.LoadScene("Final");
+        StartCoroutine(MasEsperas());
     }
 
     IEnumerator OtraPista()
@@ -88,5 +87,13 @@ public class MeinSceneManager : MonoBehaviour
         pistaActual++;
         
         return pista;
+    }
+    IEnumerator MasEsperas(){
+        Debug.Log("Entrar nivel");
+        cortina.Cerrar();
+        Debug.Log("Espera");
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("cargar escena");
+        SceneManager.LoadScene("Final");
     }
 }
