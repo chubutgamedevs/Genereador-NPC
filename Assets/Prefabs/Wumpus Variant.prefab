@@ -104,6 +104,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea4c3689e9dbb79c486254075a9e6083, type: 2}
   - {fileID: 11400000, guid: 67213c078bd26a72c8108059fc527c68, type: 2}
   - {fileID: 11400000, guid: c1f69a0a47406e94f98100ee22487a36, type: 2}
+  - {fileID: 11400000, guid: 088e01c2d99aa1d4f93689d3bc19eb04, type: 2}
 --- !u!1001 &7739700272964068747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8652625071336262395, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: _data.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8652625071336262395, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: _data.Array.data[0]
@@ -159,6 +160,18 @@ PrefabInstance:
       propertyPath: _data.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 502814f3ebd60a734863b00a36af88d9, type: 2}
+    - target: {fileID: 8652625071336262395, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 052efbbbf689c2542a51eab676ab1c77, type: 2}
+    - target: {fileID: 8652625071336262395, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dd05d18ed907f044fa95d0b273c1aa84, type: 2}
+    - target: {fileID: 8652625071336262395, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 73db902ab166d7e47b129ed2804384e2, type: 2}
     - target: {fileID: 8652625071336262397, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.88
@@ -213,12 +226,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: _data.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: _data.Array.data[0]
       value: 
+      objectReference: {fileID: 11400000, guid: a8f5f645aaebc3745a49be5cc1811a9a, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f88c3a4bb1d26c49926943ea0537879, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[2]
+      value: 
       objectReference: {fileID: 11400000, guid: 50461deb960c84ae495aa344efbf5dcd, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 964c4ba25fcc73941b322f2eb273dd20, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36962ecc02405d945acaf310cbdfcff4, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: edf5efe67f31d43408f98fc678d3ddf4, type: 2}
+    - target: {fileID: 8652625071969951285, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: _data.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb3c0064903394348878271efe856d9e, type: 2}
     - target: {fileID: 8652625071969951287, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.88
@@ -358,4 +395,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f15d461eed2e926fb476f6bc95d342e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respirar: {x: 0, y: 1, z: 0}
+  respirar: {x: 0, y: 0.05, z: 0}
