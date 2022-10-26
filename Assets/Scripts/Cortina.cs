@@ -7,7 +7,10 @@ public class Cortina : MonoBehaviour
 {
     [SerializeField] GameObject izq;
     [SerializeField] GameObject der; 
-   
+    private void Start() {
+        izq.SetActive(true);
+        der.SetActive(true);
+    }
     public void Cerrar(){
         izq.transform.DOMoveX(20 , 0.5f);
         der.transform.DOMoveX(-20, 0.5f);
