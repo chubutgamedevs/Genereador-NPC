@@ -24,29 +24,22 @@ public class Final : MonoBehaviour
 
         acusado.Clonate(MainGameManager.GetInstance().acusado);
 
-        if (acusado.culpable)
-        {
-            Culpable();
-        }
-        else
-        {
-            Inocente();
-        }
+        if (acusado.culpable) { Culpable(); }
+        else { Inocente(); }
+        
         cortina.Abrir();
         StartCoroutine(Esperar());
     }
 
     public void Culpable()
     {
-        Debug.Log("Encontraste al culpable, enhorabuena");
         mensaje = "Encontraste al culpable, enhorabuena";
         texto.text = mensaje;
         
     }
     public void Inocente()
     {
-        Debug.Log("era un inoscente, mejor suerte la proxima :)");
-        mensaje = "era un inoscente, mejor suerte la proxima :)";
+        mensaje = "era un inosente, mejor suerte la proxima :)";
         texto.text = mensaje;
     }
     public void Reset()

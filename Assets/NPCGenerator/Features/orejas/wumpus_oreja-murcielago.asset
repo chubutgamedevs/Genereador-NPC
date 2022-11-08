@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_oreja-murcielago
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bbbd75dfdc68567a9b3bdc8f4082a577, type: 3}
-  pista: 
+  pista: aaa

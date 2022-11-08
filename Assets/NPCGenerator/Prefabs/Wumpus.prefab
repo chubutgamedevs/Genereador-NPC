@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 7deedda59534316469f49ef6b3bdf2bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,12 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _sprites:
-  - {fileID: 21300000, guid: 7deedda59534316469f49ef6b3bdf2bb, type: 3}
-  - {fileID: 21300000, guid: c5b36115ba2a5104894e5e2ed13d8ebb, type: 3}
-  - {fileID: 21300000, guid: c5dd6c94e09272b4aacf1ac372b2c5ca, type: 3}
-  - {fileID: 21300000, guid: 6cf69a2932055884cad9e8f2596d49ee, type: 3}
-  - {fileID: 21300000, guid: 8d7705d1280cda044ba414519d188246, type: 3}
+  _data: []
 --- !u!1 &8652625071336262398
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +171,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: a2e088d90e47c1d4faf0756dc977273d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,10 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _sprites:
-  - {fileID: 21300000, guid: a2e088d90e47c1d4faf0756dc977273d, type: 3}
-  - {fileID: 21300000, guid: 31fbde65dc61f3c49a8920ed5fa360fe, type: 3}
-  - {fileID: 21300000, guid: 765b22db1cede0d43942ee035674adbb, type: 3}
+  _data: []
 --- !u!1 &8652625071872485828
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _features: []
+  culpable: 0
 --- !u!1 &8652625071969951288
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +322,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 14607fdee196e6948a8348486f9cf8b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -355,8 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _sprites:
-  - {fileID: 21300000, guid: 14607fdee196e6948a8348486f9cf8b4, type: 3}
+  _data: []
 --- !u!1 &8652625072092101325
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +420,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730493c355561f148829983e7644c705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -513,7 +505,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 5381711a1a599de498d084b0a3bbd0b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -539,13 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _sprites:
-  - {fileID: 21300000, guid: e53f1805ea4f03043b4f3c8b5d730686, type: 3}
-  - {fileID: 21300000, guid: 8871351b43ef159429b3c4e71673d94a, type: 3}
-  - {fileID: 21300000, guid: 2a9bcd3b01bfc0b488707a0af32b6308, type: 3}
-  - {fileID: 21300000, guid: 5381711a1a599de498d084b0a3bbd0b2, type: 3}
-  - {fileID: 21300000, guid: 8cf620caf98f6e341a2c22c3b1469b97, type: 3}
-  - {fileID: 21300000, guid: 29019cff964b76e4abe30d44b7f23e48, type: 3}
+  _data: []
 --- !u!1 &8652625072610065898
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +604,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 110899059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 40
   m_Sprite: {fileID: 21300000, guid: d52efb6a0e6d94f41923471f6f326b15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -644,11 +630,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _sprites:
-  - {fileID: 21300000, guid: d52efb6a0e6d94f41923471f6f326b15, type: 3}
-  - {fileID: 21300000, guid: 082eff409ec4be0468183bb32e32c3d4, type: 3}
-  - {fileID: 21300000, guid: 3f0fd33b4f471d24d855f40bb6aa1326, type: 3}
-  - {fileID: 21300000, guid: 570d37733e3bb0e49a5251a60e94f14b, type: 3}
-  - {fileID: 21300000, guid: b15b20b1c978ed647beaaded55dc1df0, type: 3}
-  - {fileID: 21300000, guid: 3d3e5494222cb4d47bdbd48603c1c7a1, type: 3}
-  - {fileID: 21300000, guid: 95de86d00edb31847a3e9deb2ddc0987, type: 3}
+  _data: []

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_oreja-corneta
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b81f662fdc305f6df9848d627d1450d1, type: 3}
-  pista: 
+  pista: aaaa

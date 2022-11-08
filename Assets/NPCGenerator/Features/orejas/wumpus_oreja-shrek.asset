@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_oreja-shrek
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 696d4752afa1f72cebcbce9aa2eef348, type: 3}
-  pista: 
+  pista: aaaaa
