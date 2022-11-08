@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -571,6 +571,8 @@ MonoBehaviour:
   texto: {fileID: 1080977102}
   ReiniciarButton: {fileID: 309355395}
   CartelitoOBJ: {fileID: 1878264577}
+  estomago: {fileID: 1101497591}
+  RashosEkis: {fileID: 2100000, guid: 71d900712ec57918a8abf9f2a9a14e1a, type: 2}
   cartelito: {fileID: 0}
   cortina: {fileID: 1286455818}
 --- !u!4 &562240146
@@ -1048,6 +1050,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+--- !u!1 &1101497591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8374060773756331078, guid: 9936df81ba5b59e40a4e3133829031e3, type: 3}
+  m_PrefabInstance: {fileID: 1101497590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1169646572
 GameObject:
   m_ObjectHideFlags: 0

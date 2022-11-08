@@ -14,7 +14,8 @@ public class Final : MonoBehaviour
     public GameObject ReiniciarButton;
     public GameObject CartelitoOBJ;
     private MainGameManager gm;
-
+    public GameObject estomago;
+    public Material RashosEkis;
     [SerializeField] MensajeFinal cartelito;
     [SerializeField] Cortina cortina;
     private void Start()
@@ -39,7 +40,7 @@ public class Final : MonoBehaviour
     }
     public void Inocente()
     {
-        mensaje = "era un inosente, mejor suerte la proxima :)";
+        mensaje = "era un inocente, mejor suerte la proxima :)";
         texto.text = mensaje;
     }
     public void Reset()
@@ -51,11 +52,21 @@ public class Final : MonoBehaviour
         cartelito.Mostrar();
         yield return new WaitForSeconds(1);
         ReiniciarButton.SetActive(true);
+        EstomagoAparecer();
     }
     IEnumerator OtroEsperar(){
         cortina.Cerrar();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Mein");
+    }
+
+    private void EstomagoAparecer(){
+        foreach (SpriteRenderer sp in acusado.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sp.color = Color.black;
+        } 
+        //RashosEkis.SetFloat("Value", 1f);
+        estomago.SetActive(true);
     }
     
 }

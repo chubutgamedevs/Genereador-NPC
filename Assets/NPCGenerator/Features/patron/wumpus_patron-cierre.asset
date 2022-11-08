@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_patron-cierre
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e53f1805ea4f03043b4f3c8b5d730686, type: 3}
-  pista: Tiene una cirujia de dudosa procedencia
+  pista: Tiene una cirugia de dudosa procedencia
