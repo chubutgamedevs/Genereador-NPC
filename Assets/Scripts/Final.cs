@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class Final : MonoBehaviour
 {
-    public NPCGenerator acusado;
+    public Wumpus acusado;
     private bool carcel;
     public TextMeshPro texto;
     private string mensaje; 
@@ -23,9 +23,14 @@ public class Final : MonoBehaviour
         gm = MainGameManager.GetInstance();
         cartelito = CartelitoOBJ.GetComponent<MensajeFinal>();
 
-        acusado.Clonate(MainGameManager.GetInstance().acusado);
+        if (MainGameManager.GetInstance() != null){
+            acusado.Clonate(MainGameManager.GetInstance().GetAcusado());
+        }       
 
-        if (acusado.culpable) { Culpable(); }
+        
+        
+        if (acusado.culpable) { 
+            Culpable(); }
         else { Inocente(); }
         
         cortina.Abrir();
@@ -34,14 +39,11 @@ public class Final : MonoBehaviour
 
     public void Culpable()
     {
-        mensaje = "Encontraste al culpable, enhorabuena";
-        texto.text = mensaje;
-        
+        texto.text = "Encontraste al culpable, enhorabuena";
     }
     public void Inocente()
-    {
-        mensaje = "era un inocente, mejor suerte la proxima :)";
-        texto.text = mensaje;
+    { 
+        texto.text = "era un inocente, mejor suerte la proxima :)";
     }
     public void Reset()
     {
@@ -52,7 +54,7 @@ public class Final : MonoBehaviour
         cartelito.Mostrar();
         yield return new WaitForSeconds(1);
         ReiniciarButton.SetActive(true);
-        EstomagoAparecer();
+        acusado.RayosX();
     }
     IEnumerator OtroEsperar(){
         cortina.Cerrar();
@@ -66,7 +68,7 @@ public class Final : MonoBehaviour
             sp.color = Color.black;
         } 
         //RashosEkis.SetFloat("Value", 1f);
-        estomago.SetActive(true);
+        // estomago.SetActive(true);
     }
     
 }

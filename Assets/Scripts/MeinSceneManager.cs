@@ -28,9 +28,9 @@ public class MeinSceneManager : MonoBehaviour
     }   
     public void GenerateNPCs() => npcs.ForEach(npc => npc.Generate());
 
-    public void Acusar(NPCGenerator npc)
+    public void Acusar(Wumpus npc)
     {
-        gm.acusado = npc;
+        gm.Acusar(npc);
         Final();
     }
 

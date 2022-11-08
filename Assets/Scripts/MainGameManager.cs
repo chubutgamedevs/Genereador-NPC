@@ -11,9 +11,8 @@ public class MainGameManager : MonoBehaviour
 {
 
     private static MainGameManager instance = null;
-    public NPCGenerator acusado;
+    private Wumpus _acusado;
 
-    
     //Singleton
     public static MainGameManager GetInstance()
     {
@@ -28,5 +27,13 @@ public class MainGameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void Acusar(Wumpus npc){
+        _acusado = npc;
+    }
+
+    public Wumpus GetAcusado(){
+        return _acusado;
     }
 }

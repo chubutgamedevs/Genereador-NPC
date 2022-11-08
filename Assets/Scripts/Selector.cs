@@ -7,6 +7,6 @@ public class Selector : MonoBehaviour
     public MeinSceneManager sm;
     public void OnMouseDown()
     {
-        sm.Acusar(GetComponent<NPCGenerator>()); 
+        sm.Acusar(transform.GetComponent<Wumpus>()); 
     }
 }

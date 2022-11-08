@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCGenerator : MonoBehaviour
-{
-    
-    [SerializeField] List<NPCFeature> _features;
+{   
+    [SerializeField] protected Transform featureGroup; 
+    private List<NPCFeature> _features;
     public bool culpable = false;
 
-    private void Awake(){
-        _features = new List<NPCFeature>(transform.GetComponentsInChildren<NPCFeature>());
+    protected virtual void Awake(){
+        _features = new List<NPCFeature>(featureGroup.GetComponentsInChildren<NPCFeature>());
     }
 
-    public List<NPCFeature> GetFeatures(){
-        return _features;
-    }
+    public List<NPCFeature> GetFeatures() => _features;
 
     public void Generate() => _features.ForEach(feat => feat.Generate());
 

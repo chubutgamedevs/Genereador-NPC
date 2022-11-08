@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class NPCFeature : MonoBehaviour
@@ -21,6 +22,7 @@ public class NPCFeature : MonoBehaviour
         return _data[_index].pista;
     }
 
+    [MenuItem("CONTEXT/NPCFeature/SetIndex")]
     public void SetIndex(int index)
     {
 		_index = index % _data.Count; // Acepta cualquier indice y lo acomoda a la cantidad de sprites
