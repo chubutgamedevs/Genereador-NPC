@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,6 +358,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1539287369}
     m_Modifications:
+    - target: {fileID: 8633536489309861963, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633536489309861963, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633536489309861963, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8652625071872485826, guid: 696e5c6b4148fc747b8c8a9ba4d49d97, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1380,12 +1392,12 @@ MonoBehaviour:
   m_margin: {x: -6.548527, y: 0.46175575, z: -5.037325, w: 0.7556}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1519664731}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1519664731
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MeinSceneManager : MonoBehaviour
 {
     [SerializeField] GameObject sospechosos;
-    private List<NPCGenerator> npcs;
+    private List<Wumpus> npcs;
     private MainGameManager gm;
     public botonpista bt;
     public Animator pista;
@@ -20,7 +20,8 @@ public class MeinSceneManager : MonoBehaviour
     {
         gm = MainGameManager.GetInstance();
         // Mapea los npcs automaticamente.
-        npcs = sospechosos.GetComponentsInChildren<NPCGenerator>().ToList();
+        npcs = sospechosos.GetComponentsInChildren<Wumpus>().ToList();
+        SetearColores();
         Variantes();
         mensaje.Mostrar("<-- Las moscas son tus testigos, Tocando aqui llamaras a la siguiente. Que el peso de la justicia te acompañe");
         SiguientePista(); 
@@ -89,5 +90,33 @@ public class MeinSceneManager : MonoBehaviour
         cortina.Cerrar();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Final");
+    }
+
+    public void SetearColores(){
+
+        int contador = 0;
+        float saltos = 0;
+        Color color_base = Color.HSVToRGB(Random.Range(0,360)/360f, 1f, 1f);
+        float h, s, v;
+        Color.RGBToHSV (color_base, out h, out s, out v);
+        Debug.Log (h+s+v);
+
+        //Cuantos Wumpus hay?
+        foreach (Wumpus w in npcs)
+        {
+            contador= contador + 1;
+        }
+
+        Debug.Log("Hay "+contador+ " Wumpus");
+        saltos = contador/360f; //Calculo el progreso de la barra
+        contador=1;//Reinicio el contador
+
+        //Cambiarle el color
+        foreach (Wumpus w in npcs)
+        {
+            w.SetColor(Color.HSVToRGB(h+(saltos*contador)/360f,1f,1f));
+            contador = contador +1;
+        }
+
     }
 }

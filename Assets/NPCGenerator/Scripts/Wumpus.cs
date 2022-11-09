@@ -17,11 +17,7 @@ public class Wumpus : NPCGenerator
 
     void Start()
     {
-        body.color = color;
-        foreach (SpriteRenderer feat in _features)
-        {
-            feat.color = color;
-        }
+        SetColor(color);
     }
     
     public void RayosX(){
@@ -41,6 +37,14 @@ public class Wumpus : NPCGenerator
         foreach (SpriteRenderer feat in _features)
         {
             Destroy(feat.material);
+        }
+    }
+
+    public void SetColor(Color color){
+        body.color = color;
+        foreach (SpriteRenderer feat in _features)
+        {
+            feat.color = color;
         }
     }
 }
