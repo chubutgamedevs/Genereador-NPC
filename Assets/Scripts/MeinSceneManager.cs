@@ -21,22 +21,28 @@ public class MeinSceneManager : MonoBehaviour
         gm = MainGameManager.GetInstance();
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<Wumpus>().ToList();
-        SetearColores();
         Variantes();
-        mensaje.Mostrar("<-- Las moscas son tus testigos, Tocando aqui llamaras a la siguiente. Que el peso de la justicia te acompañe");
+        mensaje.Mostrar("Las moscas son tus testigos, Tocando aqui llamaras a la siguiente. Que el peso de la justicia te acompañe.");
         SiguientePista(); 
         cortina.Abrir();       
     }   
-    public void GenerateNPCs() => npcs.ForEach(npc => npc.Generate());
-
+    
     public void Acusar(Wumpus npc)
     {
         gm.Acusar(npc);
         Final();
     }
 
+    public void GenerateNPCs()
+    {
+        npcs.ForEach(npc => npc.Generate());
+        SetearColores();
+    }
+
     public void Variantes()
     {
+        SetearColores();
+
         npcs = npcs.OrderBy(_ => Random.value).ToList();
         Debug.Log("El culpable es " +npcs[0].name);
         npcs[0].Generate();
@@ -92,31 +98,17 @@ public class MeinSceneManager : MonoBehaviour
         SceneManager.LoadScene("Final");
     }
 
-    public void SetearColores(){
+    public void SetearColores()
+    {
+        int salto = 360 / npcs.Count(); //Cuantos Wumpus hay?
 
-        int contador = 0;
-        float saltos = 0;
-        Color color_base = Color.HSVToRGB(Random.Range(0,360)/360f, 1f, 1f);
-        float h, s, v;
-        Color.RGBToHSV (color_base, out h, out s, out v);
-        Debug.Log (h+s+v);
-
-        //Cuantos Wumpus hay?
+        int hue_base = Random.Range(0, 360); 
         foreach (Wumpus w in npcs)
         {
-            contador= contador + 1;
+            w.SetColor(
+                Color.HSVToRGB(hue_base/360f,1f,1f)
+            );
+            hue_base = (hue_base + salto) % 360;
         }
-
-        Debug.Log("Hay "+contador+ " Wumpus");
-        saltos = contador/360f; //Calculo el progreso de la barra
-        contador=1;//Reinicio el contador
-
-        //Cambiarle el color
-        foreach (Wumpus w in npcs)
-        {
-            w.SetColor(Color.HSVToRGB(h+(saltos*contador)/360f,1f,1f));
-            contador = contador +1;
-        }
-
     }
 }
