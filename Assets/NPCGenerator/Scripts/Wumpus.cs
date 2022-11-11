@@ -8,6 +8,8 @@ public class Wumpus : NPCGenerator
     public Color color = Color.white;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer estomago;
+    [SerializeField] GameObject Estomago;
+    
     private SpriteRenderer[] _features;
 
     protected override void Awake(){
@@ -25,11 +27,16 @@ public class Wumpus : NPCGenerator
             () => body.material.GetFloat("_Value"), 
             x => body.material.SetFloat("_Value", x), 
             0.0f, 2.0f)
-            .OnComplete(() => estomago.enabled = true );
+            .OnComplete(() => EstamogoAparecer() );
         foreach (SpriteRenderer feat in _features)
         {
             DOTween.To(() => feat.material.GetFloat("_Value"), x => feat.material.SetFloat("_Value", x), 0.0f, 2.0f);
         }
+    }
+    private void EstamogoAparecer(){
+        estomago.enabled = true;
+        Estomago.transform.DOScaleX(1f,0.3f);
+        Estomago.transform.DOScaleY(1f,0.3f);
     }
 
     void OnDestroy() {

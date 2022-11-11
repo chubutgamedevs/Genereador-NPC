@@ -14,8 +14,6 @@ public class Final : MonoBehaviour
     public GameObject ReiniciarButton;
     public GameObject CartelitoOBJ;
     private MainGameManager gm;
-    public GameObject estomago;
-    public Material RashosEkis;
     [SerializeField] MensajeFinal cartelito;
     [SerializeField] Cortina cortina;
     private void Start()
@@ -67,8 +65,6 @@ public class Final : MonoBehaviour
         {
             sp.color = Color.black;
         } 
-        //RashosEkis.SetFloat("Value", 1f);
-        // estomago.SetActive(true);
     }
     
 }
