@@ -16,6 +16,7 @@ public class Final : MonoBehaviour
     private MainGameManager gm;
     [SerializeField] MensajeFinal cartelito;
     [SerializeField] Cortina cortina;
+    public GameObject galleta;
     private void Start()
     {
         gm = MainGameManager.GetInstance();
@@ -37,11 +38,13 @@ public class Final : MonoBehaviour
 
     public void Culpable()
     {
-        texto.text = "Encontraste al culpable, enhorabuena";
+        galleta.SetActive(true);
+        texto.text = "Encontraste al culpable, el se comio la galleta!";
     }
     public void Inocente()
     { 
-        texto.text = "era un inocente, mejor suerte la proxima :)";
+        
+        texto.text = "era  inocente, mejor suerte la proxima :)";
     }
     public void Reset()
     {

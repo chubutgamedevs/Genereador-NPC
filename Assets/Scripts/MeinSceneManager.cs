@@ -15,6 +15,7 @@ public class MeinSceneManager : MonoBehaviour
     [SerializeField] Cortina cortina;
 
     [SerializeField] Mensaje mensaje;
+    
         
     private void Start()
     {
@@ -47,6 +48,7 @@ public class MeinSceneManager : MonoBehaviour
         Debug.Log("El culpable es " +npcs[0].name);
         npcs[0].Generate();
         npcs[0].culpable = true;
+
 
         for (int i = 1; i < npcs.Count; i++)
         {
