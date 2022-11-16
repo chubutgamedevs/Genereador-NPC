@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
+using DG.Tweening;
 
 public class Final : MonoBehaviour
 {
     public Wumpus acusado;
     private bool carcel;
-    public TextMeshPro texto;
     private string mensaje; 
     public GameObject ReiniciarButton;
     public GameObject CartelitoOBJ;
@@ -17,13 +17,16 @@ public class Final : MonoBehaviour
     [SerializeField] MensajeFinal cartelito;
     [SerializeField] Cortina cortina;
     public GameObject galleta;
+
+    public GameObject CulpableIMG;
+    public GameObject InocenteIMG;
     private void Start()
     {
         gm = MainGameManager.GetInstance();
         cartelito = CartelitoOBJ.GetComponent<MensajeFinal>();
 
-        if (MainGameManager.GetInstance() != null){
-            acusado.Clonate(MainGameManager.GetInstance().GetAcusado());
+        if (gm != null){
+            acusado.ClonateWumpus(gm.GetAcusado());            
         }       
 
         
@@ -39,12 +42,11 @@ public class Final : MonoBehaviour
     public void Culpable()
     {
         galleta.SetActive(true);
-        texto.text = "Encontraste al culpable, el se comio la galleta!";
+        CulpableIMG.SetActive(true);
     }
     public void Inocente()
     { 
-        
-        texto.text = "era  inocente, mejor suerte la proxima :)";
+        InocenteIMG.SetActive(true);
     }
     public void Reset()
     {
@@ -53,13 +55,13 @@ public class Final : MonoBehaviour
     IEnumerator Esperar(){
         yield return new WaitForSeconds(0.5f);
         cartelito.Mostrar();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         ReiniciarButton.SetActive(true);
         acusado.RayosX();
     }
     IEnumerator OtroEsperar(){
         cortina.Cerrar();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene("Mein");
     }
 
@@ -69,5 +71,6 @@ public class Final : MonoBehaviour
             sp.color = Color.black;
         } 
     }
+    
     
 }

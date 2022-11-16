@@ -36,8 +36,8 @@ public class MeinSceneManager : MonoBehaviour
 
     public void GenerateNPCs()
     {
-        npcs.ForEach(npc => npc.Generate());
         SetearColores();
+        npcs.ForEach(npc => npc.Generate());        
     }
 
     public void Variantes()
@@ -96,7 +96,7 @@ public class MeinSceneManager : MonoBehaviour
     }
     IEnumerator MasEsperas(){
         cortina.Cerrar();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("Final");
     }
 

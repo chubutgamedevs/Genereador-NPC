@@ -11,7 +11,7 @@ public class MainGameManager : MonoBehaviour
 {
 
     private static MainGameManager instance = null;
-    private Wumpus _acusado;
+    [SerializeField] private Wumpus _acusado;
 
     //Singleton
     public static MainGameManager GetInstance()
@@ -22,11 +22,11 @@ public class MainGameManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
+        } else {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Acusar(Wumpus npc){

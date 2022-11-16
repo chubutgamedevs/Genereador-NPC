@@ -19,7 +19,7 @@ public class Wumpus : NPCGenerator
 
     void Start()
     {
-        SetColor(color);
+        // SetColor(color);
     }
     
     public void RayosX(){
@@ -48,10 +48,17 @@ public class Wumpus : NPCGenerator
     }
 
     public void SetColor(Color color){
+        this.color = color;
         body.color = color;
         foreach (SpriteRenderer feat in _features)
         {
             feat.color = color;
         }
     }
+
+    public void ClonateWumpus(Wumpus wumpus){
+        Clonate(wumpus);
+        SetColor(wumpus.color);
+    }
+
 }
