@@ -12,6 +12,9 @@ public class MobileManager : MonoBehaviour
     float speed = 10.0f;
     private string Aceleracion;
     public GameObject pistasobject;
+    public GameObject rueda;
+    private float tiempogiro = 0.7f;
+    private float paso = 360/6;
         
     private void Start()
     {
@@ -19,10 +22,10 @@ public class MobileManager : MonoBehaviour
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<Wumpus>().ToList();
         Variantes();      
+        Acelerometro(); 
     }   
 
-    private void Update() {
-        Acelerometro();    
+    private void Update() {   
     }
     
     public void Acusar(Wumpus npc)
@@ -77,8 +80,7 @@ public class MobileManager : MonoBehaviour
         // remap device acceleration axis to game coordinates:
         //  1) XY plane of the device is mapped onto XZ plane
         //  2) rotated 90 degrees around Y axis
-        Debug.Log("EJE X: " +Input.acceleration.x +" EJE Y:"+ Input.acceleration.y+ " EJE Z:" + Input.acceleration.z);
-        Aceleracion = ("EJE X: " +Input.acceleration.x +" EJE Y:"+ Input.acceleration.y+ " EJE Z:" + Input.acceleration.z);
+        Debug.Log("EJE X: " +(Input.acceleration.x*10) +" EJE Y:"+ (Input.acceleration.y*10)+ " EJE Z:" + (Input.acceleration.z*10));
         //dir.x = -Input.acceleration.y;
         //dir.z = Input.acceleration.x;
 
@@ -91,6 +93,21 @@ public class MobileManager : MonoBehaviour
 
         // Move object
         //transform.Translate(dir * speed);
+        StartCoroutine(Debugtext());
+    }
+   IEnumerator Debugtext(){
+        while (true){
         pistasobject.GetComponent<TMPro.TextMeshProUGUI>().text = Aceleracion;
+        yield return new WaitForSeconds(0.5f);
+        }
+    }
+    public IEnumerator Rotar(){
+        rueda.transform.DORotate(new Vector3(0, 0, 90+ paso%360), tiempogiro);
+        yield return new WaitForSeconds(tiempogiro/2);
+        paso = paso+60;   
+        GenerateNPCs();    
+    }
+    public void Girar(){
+        StartCoroutine(Rotar());
     }
 }
