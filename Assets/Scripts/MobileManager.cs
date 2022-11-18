@@ -15,6 +15,8 @@ public class MobileManager : MonoBehaviour
     public GameObject rueda;
     private float tiempogiro = 0.7f;
     private float paso = 360/6;
+
+    private bool _entradaDeshabilitada = false;
         
     private void Start()
     {
@@ -102,10 +104,15 @@ public class MobileManager : MonoBehaviour
         }
     }
     public IEnumerator Rotar(){
-        rueda.transform.DORotate(new Vector3(0, 0, 90+ paso%360), tiempogiro);
-        yield return new WaitForSeconds(tiempogiro/2);
-        paso = paso+60;   
-        GenerateNPCs();    
+        if (_entradaDeshabilitada) yield break;
+        
+        _entradaDeshabilitada = true;
+        
+        GenerateNPCs();
+        Tween t = rueda.transform.DORotate(new Vector3(0, 0, 360+60), tiempogiro, RotateMode.LocalAxisAdd);
+        yield return t.WaitForCompletion();
+        
+        _entradaDeshabilitada = false;        
     }
     public void Girar(){
         StartCoroutine(Rotar());
