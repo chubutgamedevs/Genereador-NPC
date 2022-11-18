@@ -23,8 +23,9 @@ public class MobileManager : MonoBehaviour
         gm = MainGameManager.GetInstance();
         // Mapea los npcs automaticamente.
         npcs = sospechosos.GetComponentsInChildren<Wumpus>().ToList();
+        acomodarWumpus();
         Variantes();      
-        Acelerometro(); 
+        Acelerometro();
     }   
 
     private void Update() {   
@@ -116,5 +117,18 @@ public class MobileManager : MonoBehaviour
     }
     public void Girar(){
         StartCoroutine(Rotar());
+    }
+
+    private void acomodarWumpus(){
+        float i = 0;
+        foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>())
+        {
+            trans.position = new Vector3(
+                25f * Mathf.Cos(i * Mathf.PI/3f),
+                25f * Mathf.Sin(i * Mathf.PI/3f),
+                trans.position.z);
+            trans.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg *(i * Mathf.PI/3f),Vector3.forward);
+            i -= 1;
+        } 
     }
 }
