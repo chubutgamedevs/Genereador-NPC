@@ -5,12 +5,14 @@ using System.IO;
 
 public class Screenshot : MonoBehaviour
 {
+    public GameObject EsconderCanvas;
     public void ScreenShot(){
         StartCoroutine(TakeScreenshotAndShare());
     }
 
     private IEnumerator TakeScreenshotAndShare()
     {
+        EsconderCanvas.SetActive(false);
         yield return new WaitForEndOfFrame();
 
         Texture2D ss = new Texture2D( Screen.width, Screen.height, TextureFormat.RGB24, false );
@@ -24,13 +26,14 @@ public class Screenshot : MonoBehaviour
         Destroy( ss );
 
         new NativeShare().AddFile( filePath )
-            .SetSubject( "Subject goes here" )
-            .SetText( "Hello world!" )
-            .SetUrl( "https://github.com/yasirkula/UnityNativeShare" )
+            .SetSubject( "GDV" )
+            .SetText( "Hola! Te comparto mi wumpus!")
+            .SetUrl( "https://github.com/chubutgamedevs" )
             .SetCallback( ( result, shareTarget ) => Debug.Log( "Share result: " + result + ", selected app: " + shareTarget ) )
             .Share();
+            EsconderCanvas.SetActive(true);
 
-        // Share on WhatsApp only, if installed (Android only)
+        // Solo Android, Compartir directo en whatsapp:
         //if( NativeShare.TargetExists( "com.whatsapp" ) )
         //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
     }

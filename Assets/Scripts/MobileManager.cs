@@ -18,6 +18,7 @@ public class MobileManager : MonoBehaviour
 
     private bool _entradaDeshabilitada = false;
         
+    public GameObject shareButton;
     private void Start()
     {
         gm = MainGameManager.GetInstance();
@@ -26,6 +27,7 @@ public class MobileManager : MonoBehaviour
         acomodarWumpus();
         Variantes();      
         Acelerometro();
+        shareButton.transform.DOScale(1.5f, 0.3f).SetEase(Ease.OutElastic);
     }   
 
     private void Update() {   
@@ -108,12 +110,26 @@ public class MobileManager : MonoBehaviour
         if (_entradaDeshabilitada) yield break;
         
         _entradaDeshabilitada = true;
-        
+        shareButton.SetActive(false);
+                
         GenerateNPCs();
-        Tween t = rueda.transform.DORotate(new Vector3(0, 0, 360+60), tiempogiro, RotateMode.LocalAxisAdd);
-        yield return t.WaitForCompletion();
+
+        Tween t = rueda.transform.DORotate(
+                new Vector3(0, 0, 3f*360+60),
+                tiempogiro*6,
+                RotateMode.LocalAxisAdd)
+                .SetEase(Ease.OutQuint);
         
-        _entradaDeshabilitada = false;        
+        yield return t.WaitForCompletion();
+
+        shareButton.transform.localScale = Vector3.one * 0.5f;
+        shareButton.transform.DOScale(1.5f, 0.3f).SetEase(Ease.OutElastic);
+        
+        
+        
+        shareButton.SetActive(true);
+        _entradaDeshabilitada = false;
+                
     }
     public void Girar(){
         StartCoroutine(Rotar());
@@ -124,10 +140,10 @@ public class MobileManager : MonoBehaviour
         foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>())
         {
             trans.position = new Vector3(
-                25f * Mathf.Cos(i * Mathf.PI/3f),
-                25f * Mathf.Sin(i * Mathf.PI/3f),
+                25f * Mathf.Cos((i+0.5f) * Mathf.PI/3f),
+                25f * Mathf.Sin((i+0.5f) * Mathf.PI/3f),
                 trans.position.z);
-            trans.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg *(i * Mathf.PI/3f),Vector3.forward);
+            trans.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg *((i-1f) * Mathf.PI/3f),Vector3.forward);
             i -= 1;
         } 
     }
