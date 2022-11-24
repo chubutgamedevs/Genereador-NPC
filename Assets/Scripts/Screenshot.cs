@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using DG.Tweening;
 
 public class Screenshot : MonoBehaviour
 {

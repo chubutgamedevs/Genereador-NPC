@@ -147,4 +147,9 @@ public class MobileManager : MonoBehaviour
             i -= 1;
         } 
     }
+    public void NFTWumpus(){
+        foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>()){
+            Variantes();
+        }
+    }
 }
