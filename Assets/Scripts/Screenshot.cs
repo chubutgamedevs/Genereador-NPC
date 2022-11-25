@@ -33,6 +33,7 @@ public class Screenshot : MonoBehaviour
             .SetCallback( ( result, shareTarget ) => Debug.Log( "Share result: " + result + ", selected app: " + shareTarget ) )
             .Share();
             EsconderCanvas.SetActive(true);
+            
 
         // Solo Android, Compartir directo en whatsapp:
         //if( NativeShare.TargetExists( "com.whatsapp" ) )

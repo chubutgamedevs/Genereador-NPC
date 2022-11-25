@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System.IO;
+using UnityEngine.Android;
 public class MobileManager : MonoBehaviour
 {
     [SerializeField] GameObject sospechosos;
@@ -19,6 +21,9 @@ public class MobileManager : MonoBehaviour
     private bool _entradaDeshabilitada = false;
         
     public GameObject shareButton;
+    [SerializeField] private AudioClip _ruleta, _sShot;
+    [SerializeField] private AudioSource _source;
+    private int loops;
     private void Start()
     {
         gm = MainGameManager.GetInstance();
@@ -119,6 +124,10 @@ public class MobileManager : MonoBehaviour
                 tiempogiro*6,
                 RotateMode.LocalAxisAdd)
                 .SetEase(Ease.OutQuint);
+        for (int i = 0; i < 30; i++) 
+        {
+            _source.PlayOneShot(_ruleta);
+        }
         
         yield return t.WaitForCompletion();
 
@@ -147,9 +156,67 @@ public class MobileManager : MonoBehaviour
             i -= 1;
         } 
     }
-    public void NFTWumpus(){
-        foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>()){
+    public GameObject EsconderCanvas;
+    public void ScreenShot(){
+        StartCoroutine(TakeScreenshotAndShare());
+    }
+
+    private IEnumerator TakeScreenshotAndShare()
+    {
+        EsconderCanvas.SetActive(false);
+        _source.PlayOneShot(_sShot);
+        yield return new WaitForEndOfFrame();
+
+        Texture2D ss = new Texture2D( Screen.width, Screen.height, TextureFormat.RGB24, false );
+        ss.ReadPixels( new Rect( 0, 0, Screen.width, Screen.height ), 0, 0 );
+        ss.Apply();
+
+        string filePath = Path.Combine( Application.temporaryCachePath, "shared img.png" );
+        File.WriteAllBytes( filePath, ss.EncodeToPNG() );
+
+        // To avoid memory leaks
+        Destroy( ss );
+
+        new NativeShare().AddFile( filePath )
+            .SetSubject( "GDV" )
+            .SetText( "Hola! Te comparto mi wumpus!")
+            .SetUrl( "https://github.com/chubutgamedevs" )
+            .SetCallback( ( result, shareTarget ) => Debug.Log( "Share result: " + result + ", selected app: " + shareTarget ) )
+            .Share();
+            Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+            Permission.RequestUserPermission(Permission.ExternalStorageRead);
+            ScreenCapture.CaptureScreenshot("SomeWumpus"+Time.deltaTime+".png");
+            yield return new WaitForSeconds(1f);
+            EsconderCanvas.SetActive(true);
+            foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>())
+            {
+                trans.transform.DOScale(Vector3.zero,1f);
+            } 
+            foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>())
+            {
+                trans.transform.DOScale(Vector3.one, 0f);
+            } 
+            yield return new WaitForSeconds(1f);
+            Girar();            
+
+        // Solo Android, Compartir directo en whatsapp:
+        //if( NativeShare.TargetExists( "com.whatsapp" ) )
+        //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
+    }
+    public void WumpusVerse(){
+        StartCoroutine(BigBang());
+    }
+    private IEnumerator BigBang(){
+        EsconderCanvas.SetActive(false);
+        loops = 0;
+     while (true){
+            EsconderCanvas.SetActive(false);
+            ScreenCapture.CaptureScreenshot("/home/gdv/Descargas/Wumpus/SomeWumpus"+Time.deltaTime+".png",4);
+            ScreenCapture.CaptureScreenshot("SomeWumpus"+Time.deltaTime+".png");
+            yield return new WaitForEndOfFrame();
             Variantes();
+            loops = loops +1;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
