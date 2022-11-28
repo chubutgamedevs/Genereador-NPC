@@ -15,6 +15,7 @@ public class MeinSceneManager : MonoBehaviour
     [SerializeField] Cortina cortina;
 
     [SerializeField] Mensaje mensaje;
+    [SerializeField] GameObject luces;
     
         
     private void Start()
@@ -25,7 +26,8 @@ public class MeinSceneManager : MonoBehaviour
         Variantes();
         mensaje.Mostrar("Las moscas son tus testigos, Tocando aqui llamaras a la siguiente. Que el peso de la justicia te acompañe.");
         SiguientePista(); 
-        cortina.Abrir();       
+        cortina.Abrir();   
+        StartCoroutine(encenderLuz());    
     }   
     
     public void Acusar(Wumpus npc)
@@ -85,7 +87,6 @@ public class MeinSceneManager : MonoBehaviour
     
     public string SiguientePista()
     {
-        
         if (pistaActual >= npcs[0].GetFeatures().Count) {
             return null;
         }
@@ -95,6 +96,7 @@ public class MeinSceneManager : MonoBehaviour
         return pista;
     }
     IEnumerator MasEsperas(){
+        luces.SetActive(false);
         cortina.Cerrar();
         yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("Final");
@@ -112,5 +114,13 @@ public class MeinSceneManager : MonoBehaviour
             );
             hue_base = (hue_base + salto) % 360;
         }
+    }
+    private IEnumerator encenderLuz(){
+        yield return new WaitForSeconds(0.5f);
+        luces.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        luces.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        luces.SetActive(true);
     }
 }

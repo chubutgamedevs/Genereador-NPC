@@ -35,7 +35,8 @@ public class MobileManager : MonoBehaviour
         shareButton.transform.DOScale(1.5f, 0.3f).SetEase(Ease.OutElastic);
     }   
 
-    private void Update() {   
+    private void Update() {  
+        //ScreenShot(); 
     }
     
     public void Acusar(Wumpus npc)
@@ -186,6 +187,7 @@ public class MobileManager : MonoBehaviour
             Permission.RequestUserPermission(Permission.ExternalStorageWrite);
             Permission.RequestUserPermission(Permission.ExternalStorageRead);
             ScreenCapture.CaptureScreenshot("SomeWumpus"+Time.deltaTime+".png");
+            ScreenCapture.CaptureScreenshot("/home/gdv/Descargas/Wumpus/SomeWumpus"+Time.deltaTime+".png");
             yield return new WaitForSeconds(1f);
             EsconderCanvas.SetActive(true);
             foreach (Transform trans in sospechosos.GetComponentInChildren<Transform>())
@@ -211,7 +213,7 @@ public class MobileManager : MonoBehaviour
         loops = 0;
      while (true){
             EsconderCanvas.SetActive(false);
-            ScreenCapture.CaptureScreenshot("/home/gdv/Descargas/Wumpus/SomeWumpus"+Time.deltaTime+".png",4);
+            ScreenCapture.CaptureScreenshot("/home/gdv/Descargas/Wumpus/SomeWumpus"+Time.deltaTime+".png");
             ScreenCapture.CaptureScreenshot("SomeWumpus"+Time.deltaTime+".png");
             yield return new WaitForEndOfFrame();
             Variantes();
