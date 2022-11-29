@@ -16,6 +16,8 @@ public class MeinSceneManager : MonoBehaviour
 
     [SerializeField] Mensaje mensaje;
     [SerializeField] GameObject luces;
+    [SerializeField] AudioClip luz;
+    [SerializeField] AudioSource Audio;
     
         
     private void Start()
@@ -27,7 +29,8 @@ public class MeinSceneManager : MonoBehaviour
         mensaje.Mostrar("Las moscas son tus testigos, Tocando aqui llamaras a la siguiente. Que el peso de la justicia te acompañe.");
         SiguientePista(); 
         cortina.Abrir();   
-        StartCoroutine(encenderLuz());    
+        StartCoroutine(encenderLuz());
+        Audio.PlayOneShot(luz);    
     }   
     
     public void Acusar(Wumpus npc)
