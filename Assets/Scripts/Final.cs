@@ -28,12 +28,6 @@ public class Final : MonoBehaviour
         if (gm != null){
             acusado.ClonateWumpus(gm.GetAcusado());            
         }       
-
-        
-        
-        if (acusado.culpable) { 
-            Culpable(); }
-        else { Inocente(); }
         
         cortina.Abrir();
         StartCoroutine(Esperar());
@@ -54,10 +48,16 @@ public class Final : MonoBehaviour
     }
     IEnumerator Esperar(){
         yield return new WaitForSeconds(0.5f);
-        cartelito.Mostrar();
-        yield return new WaitForSeconds(3);
-        ReiniciarButton.SetActive(true);
         acusado.RayosX();
+        yield return new WaitForSeconds(3);
+
+        if (acusado.culpable) { 
+            Culpable(); }
+        else { Inocente(); }
+
+        cartelito.Mostrar();        
+        ReiniciarButton.SetActive(true);
+
     }
     IEnumerator OtroEsperar(){
         cortina.Cerrar();

@@ -17,6 +17,7 @@ public class MeinSceneManager : MonoBehaviour
     [SerializeField] Mensaje mensaje;
     [SerializeField] GameObject luces;
     [SerializeField] AudioClip luz;
+    [SerializeField] AudioClip click;
     [SerializeField] AudioSource Audio;
     
         
@@ -35,6 +36,7 @@ public class MeinSceneManager : MonoBehaviour
     
     public void Acusar(Wumpus npc)
     {
+        Audio.PlayOneShot(click);
         gm.Acusar(npc);
         Final();
     }
@@ -70,6 +72,7 @@ public class MeinSceneManager : MonoBehaviour
 
     IEnumerator OtraPista()
     {
+        Audio.PlayOneShot(click);
         mensaje.Esconder();
 
         yield return new WaitForSeconds(0.5f);
@@ -125,5 +128,10 @@ public class MeinSceneManager : MonoBehaviour
         luces.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         luces.SetActive(true);
+    }
+
+    private void OnMouseDown()
+    {
+        Audio.PlayOneShot(click);
     }
 }
