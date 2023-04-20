@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_nariz-nada
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 746cc840a359bd5cd99cff73346e8789, type: 3}
-  pista: "No se ol\xEDa que lo estabamos viendo"
+  pista: Le falta el sentido del olfato

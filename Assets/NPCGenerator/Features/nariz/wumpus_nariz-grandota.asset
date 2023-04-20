@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_nariz-grandota
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c5b36115ba2a5104894e5e2ed13d8ebb, type: 3}
-  pista: Consume mucho oxigeno
+  pista: Una nariz de grandes proporciones

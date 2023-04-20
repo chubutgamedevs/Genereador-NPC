@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_patron-traje
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 29019cff964b76e4abe30d44b7f23e48, type: 3}
-  pista: "Fino se\xF1ores"
+  pista: Viste de manera elegante

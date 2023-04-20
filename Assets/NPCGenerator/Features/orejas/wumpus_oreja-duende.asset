@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_oreja-duende
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5510a28d6fa9fb6ae86a3c248fc5ff57, type: 3}
-  pista: aaaa
+  pista: Orejas de duende

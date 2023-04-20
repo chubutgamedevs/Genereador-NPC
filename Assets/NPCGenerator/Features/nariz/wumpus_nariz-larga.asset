@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_nariz-larga
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c5dd6c94e09272b4aacf1ac372b2c5ca, type: 3}
-  pista: Su apodo es pinocho
+  pista: Nariz de un mentiroso

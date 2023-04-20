@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_top-galera
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 31fbde65dc61f3c49a8920ed5fa360fe, type: 3}
-  pista: Usa sombrero de mafioso o de mago.... depende el dia
+  pista: Usa un sombrero formal

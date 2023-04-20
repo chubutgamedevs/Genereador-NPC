@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_ojo-asustado
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: d52efb6a0e6d94f41923471f6f326b15, type: 3}
-  pista: Le tiene miedo al eje vertical.... // Y?
+  pista: Esta asustado por algo

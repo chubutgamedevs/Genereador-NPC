@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_top-antenas
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 1ad630b2a78763bc596b2365b4afe813, type: 3}
-  pista: 
+  pista: LLeva el chip 5g

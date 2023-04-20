@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_patron-musculos
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5381711a1a599de498d084b0a3bbd0b2, type: 3}
-  pista: Esta mas duro que el termineitor
+  pista: Le gusta ir al gimnasio

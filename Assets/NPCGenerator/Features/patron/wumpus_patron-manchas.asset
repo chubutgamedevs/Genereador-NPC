@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_patron-manchas
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2a9bcd3b01bfc0b488707a0af32b6308, type: 3}
-  pista: Esta manchado
+  pista: Se mancho con algo

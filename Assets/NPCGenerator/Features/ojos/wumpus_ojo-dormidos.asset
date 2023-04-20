@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_ojo-dormidos
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 082eff409ec4be0468183bb32e32c3d4, type: 3}
-  pista: "No es vago, pero tiene mal sue\xF1o"
+  pista: Se quedo hasta tarde con los videojuegos

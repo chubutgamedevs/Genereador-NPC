@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_top-cuernitos
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9f013df5651b23c44970814f82855581, type: 3}
-  pista: "Ten\xEDa unos cuernitos chiquitos"
+  pista: Tiene cuernos

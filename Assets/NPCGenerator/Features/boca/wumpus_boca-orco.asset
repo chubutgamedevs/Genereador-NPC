@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_boca-orco
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 95cc3ef65ada2db4082fc258d7492cde, type: 3}
-  pista: Sus enormes dientes me asustaban
+  pista: Sus enormes dientes asustan

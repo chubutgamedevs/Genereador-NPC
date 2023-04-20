@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_boca-bigote
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 01087e5a4c84d56409b5f15edb90b023, type: 3}
-  pista: La migas se le quedan en el bigote
+  pista: No se afeita el bigote

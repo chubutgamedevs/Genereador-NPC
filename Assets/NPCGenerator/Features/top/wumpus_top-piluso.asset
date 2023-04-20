@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_top-piluso
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 765b22db1cede0d43942ee035674adbb, type: 3}
-  pista: piluso
+  pista: Gorro piluso atr

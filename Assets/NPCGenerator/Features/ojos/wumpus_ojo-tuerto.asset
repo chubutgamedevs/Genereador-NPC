@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_ojo-tuerto
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 95de86d00edb31847a3e9deb2ddc0987, type: 3}
-  pista: MIra el mundo en 2d
+  pista: Tiene mal un ojo

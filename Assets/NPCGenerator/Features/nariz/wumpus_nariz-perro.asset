@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_nariz-perro
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 6cf69a2932055884cad9e8f2596d49ee, type: 3}
-  pista: Tiene el olfato de un perro
+  pista: Tiene el olfato canino

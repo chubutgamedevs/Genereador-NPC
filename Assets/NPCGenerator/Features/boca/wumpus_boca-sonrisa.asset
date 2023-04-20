@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_boca-sonrisa
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 84f9e582689a8264293ab194f6be1415, type: 3}
-  pista: No se porque estaba tan feliz
+  pista: Esta contento

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_patron-camiseta
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c8605997e753e7117867b26c505b37af, type: 3}
-  pista: 
+  pista: Tiene tres estrellas el conjunto

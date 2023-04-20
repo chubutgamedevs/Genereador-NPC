@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_boca-triste
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: d42bc6769a1fcdc4ea72dcacbdeb37dd, type: 3}
-  pista: "No se lo ve\xEDa muy feliz"
+  pista: Esta triste por algo

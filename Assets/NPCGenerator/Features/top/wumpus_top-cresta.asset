@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: wumpus_top-cresta
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 876594e4c4e84d34da74de3eeeb396d6, type: 3}
-  pista: Creo que era punk
+  pista: Pertenece al movimiento PUNK
